@@ -101,6 +101,7 @@ julia> cupsacuer(2)
 0.1113
 ```
 """
+# solution 1
 # function cupsacuer(n)
 #     # finish this function
 #     N = 10^6
@@ -123,13 +124,14 @@ julia> cupsacuer(2)
 #     end
 #     return total/N
 # end
-
+                    
+# solution 2
 function cupsacuer(n)
     N = 10^6
     total = 0
     for _ in 1:N
         pos = shuffle(vcat(fill(1,n),fill(2,n),fill(3,n)))
-
+        # beware of the brackets connecting booleans
         if (1 in pos[1:n]) == false  && (2 in pos[n+1:2*n]) == false && (3 in pos[2*n+1:3*n]) == false
             total += 1
         end
